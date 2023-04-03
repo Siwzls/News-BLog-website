@@ -35,7 +35,7 @@ header{
     left: 0;
     z-index: 1;
 }
-.header__logo{
+.header__logo__inner{
     display: flex;
     align-items: center;
     gap: 20px;
@@ -337,4 +337,60 @@ ARTICLE COMMENTS
 }
 .comment__text{
     margin-top: 30px;
+}
+/* 
+=============================================
+POPUPS
+=============================================
+*/
+.popup{
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background-color: #6666667a;
+
+    z-index: 1;
+}
+.popup__content{
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 40%;
+    height: 50%;
+
+    margin: auto;
+
+    background: #ffffff;
+}
+.popup__content__close{
+    display: block;
+
+    margin-left: auto;
+
+    width: fit-content;
+}
+.popup__content form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 20px;
+
+    width: 50%;
+
+    margin: auto;
 }

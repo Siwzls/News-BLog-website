@@ -1,6 +1,14 @@
 <?php
     require_once 'config/connect.php';
-
+    require 'vendor/userStatus.php';
+    session_start();
+    $user;
+    if (isset($_SESSION['user'])){
+        $user = $_SESSION['user'];
+    } 
+    else {
+        $user = new User();   
+    }
     $articles = mysqli_query($connect, "SELECT * FROM `articles`");
     $articles = mysqli_fetch_all($articles);
 ?>
@@ -19,9 +27,9 @@
 </head>
 <body>
     <header>
-        <img src="./images/Menu.svg" alt="">
-        <div>
-            <a href="index.php" class="header__logo">
+        <img src="./images/Menu.svg" alt="" class="header__menu">
+        <div class="header__logo">
+            <a href="index.php" class="header__logo__inner">
                 <img src="./images/Logo.svg" alt="">
                 <h1 class="header__logo__title">Expo</h1>
             </a>
@@ -35,14 +43,34 @@
                 Add new
             </button>
         </div>
-        <div class="header__login">
-            <div class="header__login__inner">
-                <h3 id="Login">Log in</h3>
-                <span></span>
-                <h3 id="Registration">Sign in</h3>
-            </div>
-            <img src="./images/User.svg" alt="">
-        </div>
+        <?php 
+            if(!$user->IsUserLogined()){
+            ?>
+                <div class="header__login">
+                    <div class="header__login__inner">
+                        <h3 id="loginButton">Log in</h3>
+                        <span></span>
+                        <h3 id="registrationButton">Sign in</h3>
+                    </div>
+                    <img src="./images/User.svg" alt="">
+                </div>
+            <?php
+            }
+            else{
+            ?>
+                <div class="header__login">
+                    <div class="header__login__inner">
+                        <h3>
+                            <?= $user->GetNickname()?>
+                        </h3>
+                        <span></span>
+                        <h3 id="logoutButton"><a href="vendor/authentication.php">Log out</a></h3>
+                    </div>
+                    <img src="./images/User.svg" alt="">
+                </div>
+            <?php 
+            }
+            ?>
     </header>
     <aside>
         <div class="aside__content">
@@ -93,8 +121,8 @@
             <?php
                 foreach($articles as $article){
                     ?>
-                        <a href="vendor/article.php?id=<?= $article[0] ?>">
-                            <div class="article__block">
+                        <a class="article__block" href="vendor/article.php?id=<?= $article[0] ?>">
+                            <div>
                                 <div class="article__block__title">
                                     <h1>
                                         <?= $article[1] ?>
@@ -119,5 +147,18 @@
             ?>
         </div>
     </main>
+    <div class="popup" id="loginPopup">
+        <div class="popup__content">
+            <span class="popup__content__close">&times;</span>
+            <form action="vendor/authentication.php" method="post">
+                <label for="">Login</label>
+                <input type="text" name="login" id="login" required>
+                <label for="">Password</label>
+                <input type="password" name="password" id="password" required>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
 </body>
 </html>
