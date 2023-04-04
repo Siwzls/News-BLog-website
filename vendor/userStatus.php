@@ -1,9 +1,10 @@
 <?php
 class User{
+    public $isUserLogined;
+    
+    private $userID = null;
     private $nickname = null;
     private $email = null;
-
-    private $isUserLogined;
 
     public function __construct()
     {
@@ -12,6 +13,7 @@ class User{
 
     public function SetUserData($userData)
     {
+        $this->userID = $userData['id'];
         $this->nickname = $userData['nickname'];
         $this->email = $userData['email'];
     }
@@ -26,6 +28,10 @@ class User{
     
     public function SetLoginFlag($flag){
         $this->isUserLogined = $flag;
+    }
+    
+    public function GetUserID(){
+        return $this->userID;
     }
 }
 ?>

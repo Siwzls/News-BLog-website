@@ -44,7 +44,7 @@
             </button>
         </div>
         <?php 
-            if(!$user->IsUserLogined()){
+            if(!$user->isUserLogined){
             ?>
                 <div class="header__login">
                     <div class="header__login__inner">

@@ -11,7 +11,7 @@
         $user = new User();
     }
 
-    if($user->IsUserLogined()){
+    if($user->isUserLogined){
         $user->SetLoginFlag(false);
         $_SESSION['user'];
         header("Location: /News-BLog%20website");
@@ -29,12 +29,8 @@
             $user->SetLoginFlag(true);
             $user->SetUserData($userData);
             $_SESSION['user'] = $user;
-            header("Location: /News-BLog%20website");
-            exit;
         }
-        else{
-            header("Location: /wrong");
-            exit;
-        }
+        header("Location: /News-BLog%20website");
+        exit;
     }
 ?>

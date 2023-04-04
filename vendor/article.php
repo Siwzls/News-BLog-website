@@ -1,5 +1,14 @@
 <?php
     require_once '../config/connect.php';
+    require_once 'userStatus.php';
+    session_start();
+    $user;
+    if (isset($_SESSION['user'])){
+        $user = $_SESSION['user'];
+    } 
+    else {
+        $user = new User();   
+    }
 
     $articleID = $_GET['id'];
 
@@ -102,11 +111,11 @@
                 <?=$article['text']?>
             </p>
             <div class="comments__form">
-                <form action="vendor/article.php?id=<?= $article[0] ?>">
+                <form action="addComment.php?articleID=<?= $article['id']?>&userID=<?= $user->GetUserID()?>" method="post">
                     <label class="article__comments__title">Comments</label>
                     <div class="article__comments__form">
                         <textarea cols = "70" class="article__comments__input" 
-                        placeholder="Write a comment" required></textarea>
+                        placeholder="Write a comment" required name="text" id="text"></textarea>
                         <div class="article__comments__form__inner">
                             <div class="article__comments__form__inner__rating">
                                 <img src="../images/like.png" alt="">
