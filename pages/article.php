@@ -1,6 +1,6 @@
 <?php
     require_once '../config/connect.php';
-    require_once 'userStatus.php';
+    require_once '../vendor/userStatus.php';
     session_start();
     $user;
     if (isset($_SESSION['user'])){
@@ -34,8 +34,8 @@
 <body>
     <header>
         <img src="../images/Menu.svg" alt="">
-        <div>
-            <a href="../index.php" class="header__logo">
+        <div class="header__logo">
+            <a href="../index.php" class="header__logo__inner">
                 <img src="../images/Logo.svg" alt="">
                 <h1 class="header__logo__title">Expo</h1>
             </a>
@@ -49,14 +49,34 @@
                 Add new
             </button>
         </div>
-        <div class="header__login">
-            <div class="header__login__inner">
-                <h3 id="Login">Log in</h3>
-                <span></span>
-                <h3 id="Registration">Sign in</h3>
-            </div>
-            <img src="../images/User.svg" alt="">
-        </div>
+        <?php 
+            if(!$user->isUserLogined){
+            ?>
+                <div class="header__login">
+                    <div class="header__login__inner">
+                        <h3 id="loginButton">Log in</h3>
+                        <span></span>
+                        <h3 id="registrationButton">Sign in</h3>
+                    </div>
+                    <img src="./images/User.svg" alt="">
+                </div>
+            <?php
+            }
+            else{
+            ?>
+                <div class="header__login">
+                    <div class="header__login__inner">
+                        <h3>
+                            <?= $user->GetNickname()?>
+                        </h3>
+                        <span></span>
+                        <h3 id="logoutButton"><a href="../vendor/authentication.php">Log out</a></h3>
+                    </div>
+                    <img src="./images/User.svg" alt="">
+                </div>
+            <?php 
+            }
+            ?>
     </header>
     <aside>
         <div class="aside__content">
@@ -148,7 +168,6 @@
                                     <?=$comment[1]?>
                                 </p>
                             </div>
-                        
                             <?php
                         }
                 }
@@ -161,7 +180,7 @@
     <div class="popup" id="loginPopup">
         <div class="popup__content">
             <span class="popup__content__close">&times;</span>
-            <form action="vendor/login.php" method="post">
+            <form action="../vendor/authentication.php" method="post">
                 <label for="">Login</label>
                 <input type="text" name="login" id="login" required>
                 <label for="">Password</label>
@@ -170,6 +189,6 @@
             </form>
         </div>
     </div>
-    <script src="js/app.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 </html>

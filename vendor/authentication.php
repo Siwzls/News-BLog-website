@@ -14,7 +14,7 @@
     if($user->isUserLogined){
         $user->SetLoginFlag(false);
         $_SESSION['user'];
-        header("Location: /News-BLog%20website");
+        header("Location: /News-BLog%20website/index.php");
         exit;
     }
 
@@ -30,7 +30,7 @@
             $user->SetUserData($userData);
             $_SESSION['user'] = $user;
         }
-        header("Location: /News-BLog%20website");
+        header("Location: /News-BLog%20website/index.php");
         exit;
     }
 ?>
