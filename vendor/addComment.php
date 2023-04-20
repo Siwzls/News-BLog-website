@@ -10,5 +10,5 @@
                             (`id`, `text`, `userID`, `articleID`) 
                             VALUES (NULL, '$text', '$userID', '$articleID')");
 
-    header("Location: /News-BLog%20website/vendor/article.php?id=$articleID");
+    header("Location: /views/pages/article.php?id=$articleID");
 ?>

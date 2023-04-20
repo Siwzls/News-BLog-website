@@ -1,5 +1,5 @@
 <?php 
-    require_once 'C:\xampp\htdocs\News-BLog website\config\connect.php';
+    require_once '../config/connect.php';
     require 'userStatus.php';
     session_start();
     $user;
@@ -12,25 +12,38 @@
     }
 
     if($user->isUserLogined){
-        $user->SetLoginFlag(false);
-        $_SESSION['user'];
-        header("Location: /News-BLog%20website/index.php");
-        exit;
+        LogoutUser($user);
     }
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $login = $_POST['login'];
-        $password = $_POST['password'];
-
-        $result = mysqli_query($connect, "SELECT * FROM users WHERE login='$login' AND password='$password'");
-        $userData = mysqli_fetch_assoc($result);
+        if($_POST['isRegistrationRequest'] === "true"){
+            $email = $_POST['email'];
+            $nickname = $_POST['nickname'];
+            $login = $_POST['login'];
+            $password = $_POST['password'];
     
-        if($result->num_rows > 0){
-            $user->SetLoginFlag(true);
-            $user->SetUserData($userData);
-            $_SESSION['user'] = $user;
+            mysqli_query($connect, "INSERT INTO `users` (`login`, `password`, `nickname`, `email`, `isAdmin`) 
+                                    VALUES('$login', '$password', '$nickname', '$email', '0')");
         }
-        header("Location: /News-BLog%20website/index.php");
-        exit;
+        if($_POST['isRegistrationRequest'] === "false"){
+            $login = $_POST['login'];
+            $password = $_POST['password'];
+    
+            $result = mysqli_query($connect, "SELECT * FROM users WHERE login='$login' AND password='$password'");
+            $userData = mysqli_fetch_assoc($result);
+            
+            if($result->num_rows > 0){
+                $user->isUserLogined = true;
+                $user->SetUserData($userData);
+                $_SESSION['user'] = $user;
+            }
+        }
     }
+
+    function LogoutUser($user){
+        $user->isUserLogined = false;
+        $_SESSION['user'];
+    }
+    header("Location: /index.php");
+    exit;
 ?>

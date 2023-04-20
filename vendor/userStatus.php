@@ -18,16 +18,8 @@ class User{
         $this->email = $userData['email'];
     }
 
-    public function IsUserLogined(){
-        return $this->isUserLogined;
-    }
-
     public function GetNickname(){
         return $this->nickname;
-    }
-    
-    public function SetLoginFlag($flag){
-        $this->isUserLogined = $flag;
     }
     
     public function GetUserID(){
