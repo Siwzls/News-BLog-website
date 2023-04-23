@@ -44,7 +44,7 @@
                                         <?= $article[3] ?>
                                     </p>
                                 </div>
-                                <img src="" alt="">
+                                <img src="<?= $article[6]?>" alt="">
                             </div>
                         </a>
                     <?php
@@ -54,6 +54,6 @@
     </main>
     <?php include 'views/templates/loginPopup.php' ?>
     <?php include 'views/templates/registrationPopup.php' ?>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

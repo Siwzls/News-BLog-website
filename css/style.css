@@ -7,9 +7,19 @@
 
     font-family: 'Inter', sans-serif;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+}
+textarea{
+    resize: vertical;
+}
 button{
     cursor: pointer;
     font-weight: bold;
+
+    border: none;
+    background: none;
 }
 ul, li{
     list-style-type: none;
@@ -119,6 +129,9 @@ header{
     background: none;
     border: none;
 }
+.header__add__button--disabled{
+    background-color: #646464;
+}
 /* 
 =============================================
 SIDEBAR
@@ -140,6 +153,8 @@ aside{
     width: max-content;
 }
 .aside__title{
+    display: block;
+
     padding-top: 10px;
 
     font-size: 24px;
@@ -351,6 +366,108 @@ ARTICLE COMMENTS
 }
 .comment__text{
     margin-top: 30px;
+}
+/* 
+=============================================
+Add Article Page
+=============================================
+*/
+#articlePage{
+    display: flex;
+    flex-direction: column;
+}
+.add__article{
+    margin: auto;
+}
+.add__article__blocks{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 50px;
+
+    width: fit-content;
+    margin: auto;
+
+    margin-top: 75px;
+}
+.add__article__block{
+    display: block;
+    flex-direction: column;
+}
+#inputImage{
+    display: none;
+}
+#previewImage{
+    width: 250px;
+    height: 250px;
+
+    background-color: #646464;
+}
+.add__article__block--text{
+    margin: 75px auto 0;
+    width: fit-content;
+}
+.add__article__upload__btn{
+    padding: 10px 15px;
+    background-color: #000000;
+    border-radius: 25px;
+
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+.add__article__block--upload{
+    display: inline-flex;
+    align-items: center;
+
+    gap: 20px;
+}
+.add__article__input__title{
+    display: block;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+.add__article__input{
+    border: 3px solid #000000;
+    border-radius: 25px;
+
+    width: 100%;
+
+    font-size: 24px;
+
+    margin-top: 25px;
+    padding: 10px 15px;
+}
+.add__article__bottom{
+    display: flex;
+    gap: 75px;
+
+    margin: 85px auto 55px;
+    width: fit-content;
+}
+.add__article__submit__btn{
+    padding: 10px 15px;
+
+    border-radius: 25px;
+    border: none;
+    
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff;
+
+    cursor: pointer;
+}
+.add__article__submit__btn--delete{
+    background-color: #E44040;
+}
+.add__article__submit__btn--save{
+    background-color: #000000;
+}
+.add__article__submit__btn--publish{
+    background-color: #467D00;
 }
 /* 
 =============================================

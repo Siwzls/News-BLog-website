@@ -1,7 +1,7 @@
 <div class="popup" id="registrationPopup">
     <div class="popup__content">
         <span class="popup__content__close">&times;</span>
-        <form action="vendor/authentication.php" method="post">
+        <form action="/vendor/authentication.php" method="post">
             <label for="">Email</label>
             <input type="email" pattern="^[a-zA-Z0-9._%+-]+@globex\.com$" name="email" required>
             <label for="">Nickname</label>

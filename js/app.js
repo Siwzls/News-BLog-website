@@ -7,12 +7,19 @@ const popupCloseButtons = document.querySelectorAll('.popup__content__close');
 const loginPopup = document.getElementById('loginPopup');
 const registrationPopup = document.getElementById('registrationPopup');
 
-loginButton.onclick = function(event){
-    TogglePopup(loginPopup);
+const inputImage = document.getElementById('inputImage');
+const previewImage = document.getElementById('previewImage');
+
+if(loginButton != null){
+    loginButton.onclick = function(event){
+        TogglePopup(loginPopup);
+    }    
 }
 
-registrationButton.onclick = function(event){
-    TogglePopup(registrationPopup);
+if(registrationButton != null){
+    registrationButton.onclick = function(event){
+        TogglePopup(registrationPopup);
+    }
 }
 
 popupCloseButtons.forEach(element => {
@@ -21,6 +28,18 @@ popupCloseButtons.forEach(element => {
         TogglePopup(popup);
     }
 });
+
+inputImage.addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function(event) {
+    previewImage.src = event.target.result;
+  };
+
+  reader.readAsDataURL(file);
+});
+
 
 function TogglePopup(popup){
     if(popup.style.display == "block")

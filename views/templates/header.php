@@ -10,12 +10,14 @@
         <input type="search" placeholder="Search">
     </div>
     <div class="header__add">
-        <button class="header__add__button" id="Add">
-            <a class="header__add__button__inner" href="/views/pages/addArticle.php">
-                <img src="/images/AddIcon.svg" alt="">
-                Add new
-            </a>
-        </button>
+        <?php if($user->isUserLogined) : ?>
+            <button class="header__add__button" id="Add">
+                <a class="header__add__button__inner" href="/views/pages/addArticle.php">
+                    <img src="/images/AddIcon.svg" alt="">
+                    Add new
+                </a>
+            </button>
+        <?php endif; ?>
     </div>
     <?php if(!$user->isUserLogined) : ?>
         <div class="header__login">

@@ -48,7 +48,11 @@
                                 <img src="../../images/dislike.png" alt="">
                                 <h1>0</h1>
                             </div>
-                            <input type="submit" value="Submit" class="article__comments__sumbit">
+                            <?php if($user->isUserLogined) : ?>
+                                <input type="submit" value="Submit" class="article__comments__sumbit">
+                            <?php else : ?>
+                                <input type="submit" value="Submit" class="article__comments__sumbit" disabled>
+                            <?php endif ?>
                         </div>
                     </div>
                 </form>
@@ -85,6 +89,6 @@
     </main>
     <?php include '../../views/templates/loginPopup.php' ?>
     <?php include '../../views/templates/registrationPopup.php' ?>
-    <script src="../js/app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>
