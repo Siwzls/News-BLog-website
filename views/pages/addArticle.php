@@ -14,7 +14,7 @@
 <html lang="en">
 <?php include '../../views/templates/head.php'?>
 <body>
-    <?php include '../../views/templates/header.php' ?>   
+    <?php include '../../views/templates/header.php'?>   
     <aside>
     <div class="aside__content">
         <button class="aside__title">Your Drafts</button>
