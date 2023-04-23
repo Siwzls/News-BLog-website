@@ -187,6 +187,10 @@ aside{
     font-size: 18px;
     font-weight: 400;
 }
+.aside__list__elem__icon{
+    height: 26px;
+    width: 26px;
+}
 /* 
 =============================================
 ARTICLE BLOCKS
