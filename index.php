@@ -11,7 +11,13 @@
         $user = new User();   
     }
 
-    $articles = mysqli_query($connect, "SELECT * FROM `articles`");
+    $sqlQuery = "SELECT * FROM `articles`";
+    
+    if(isset($_GET['filter'])){
+        $theme = $_GET['filter'];
+        $sqlQuery = "SELECT * FROM `articles` WHERE `theme` = '$theme'";
+    }
+    $articles = mysqli_query($connect, $sqlQuery);
     $articles = mysqli_fetch_all($articles);
 ?>
 

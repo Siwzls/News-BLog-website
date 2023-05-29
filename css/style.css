@@ -175,6 +175,8 @@ aside{
     background: none;
 
     font-weight: 400;
+
+    cursor: pointer;
 }
 .aside__list__elem{
     display: flex;
@@ -190,6 +192,9 @@ aside{
 .aside__list__elem__icon{
     height: 26px;
     width: 26px;
+}
+#catalog{
+    display: none;
 }
 /* 
 =============================================
@@ -504,6 +509,9 @@ POPUPS
 
     margin: auto;
 
+    border: solid 2px #000000;
+    border-radius: 20px;
+
     background: #ffffff;
 }
 .popup__content__close{
@@ -512,6 +520,8 @@ POPUPS
     margin-left: auto;
 
     width: fit-content;
+
+    cursor: pointer;
 }
 .popup__content form{
     position: absolute;
@@ -528,4 +538,29 @@ POPUPS
     width: 50%;
 
     margin: auto;
+}
+.popup__content__input{
+    border: none;
+    border-bottom: solid 2px #000000;
+    padding: 10px 5px;
+}
+.popup__content__submit{
+    border: none;
+    background: #467D00;
+    color: #ffffff;
+    padding: 10px 5px;
+
+    border-radius: 20px;
+    cursor: pointer;
+
+    transition: linear 0.2s;
+}
+.popup__content__submit:hover{
+    border: none;
+    background: #467D00;
+    color: #ffffff;
+    padding: 10px 15px;
+
+    border-radius: 20px;
+    cursor: pointer;
 }

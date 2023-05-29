@@ -3,11 +3,11 @@
         <span class="popup__content__close">&times;</span>
         <form action="/vendor/authentication.php" method="post">
             <label>Login</label>
-            <input type="text" name="login" required>
+            <input class="popup__content__input" type="text" name="login" required>
             <label>Password</label>
-            <input type="password" name="password" required>
+            <input class="popup__content__input" type="password" name="password" required>
             <input type="hidden" name="isRegistrationRequest" value="false">
-            <input type="submit" value="Login">
+            <input class="popup__content__submit"type="submit" value="Login">
         </form>
     </div>
 </div>

@@ -1,5 +1,5 @@
 <aside>
-    <div class="aside__content">
+    <div class="aside__content" id="catalog">
         <h1 class="aside__title">Catalog</h1>
         <ul class="aside__list__inner">
             <li class="aside__list__elem">
@@ -21,23 +21,23 @@
         </ul>
     </div>
     <div class="aside__content">
-        <h1 class="aside__title">Themes</h1>
+        <a href="/"class="aside__title">Themes</a>
         <ul class="aside__list__inner">
             <li class="aside__list__elem">
                 <img class="aside__list__elem__icon" src="/images/Sport.png" alt="">
-                <button class="aside__button">Sport</button>
+                <a href="?filter=sport" class="aside__button">Sport</a>
             </li>
             <li class="aside__list__elem">
                 <img class="aside__list__elem__icon" src="/images/Science.png" alt="">
-                <button class="aside__button">Science</button>
+                <a href="?filter=science" class="aside__button">Science</a>
             </li>
             <li class="aside__list__elem">
                 <img class="aside__list__elem__icon" src="/images/Gamepad.svg" alt="">
-                <button class="aside__button">Games</button>
+                <a href="?filter=games" class="aside__button">Games</a>
             </li>
             <li class="aside__list__elem">
                 <img class="aside__list__elem__icon" src="/images/Movie.png" alt="">
-                <button class="aside__button">Movies</button>
+                <a href="?filter=movie" class="aside__button">Movies</a>
             </li>
         </ul>
     </div>
