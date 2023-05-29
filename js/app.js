@@ -24,7 +24,7 @@ if(registrationButton != null){
 
 popupCloseButtons.forEach(element => {
     element.onclick = function(event){
-        let popup = GetPopupOfCloseButton(element);
+        let popup = GetParent(element, "popup");
         TogglePopup(popup);
     }
 });
@@ -48,10 +48,37 @@ function TogglePopup(popup){
         popup.style.display = "block";
 }
 
-function GetPopupOfCloseButton(closeButton){
-    let currentElement = closeButton;
-    while(!currentElement.classList.contains("popup")){
+function GetParent(element, parentClass){
+    let currentElement = element;
+    while(!currentElement.classList.contains(parentClass)){
         currentElement = currentElement.parentNode;
     }
     return currentElement;
+}
+function search(event) {
+    var searchInput = document.getElementById('searchInput').value;
+    var allTitles = document.getElementsByClassName('article__block__title__inner');
+    var blocksArray = [...allTitles];
+    if (event.keyCode === 13) {
+
+        blocksArray.forEach(element => {
+            var parent = GetParent(element, "article__block");
+            let title = element.innerText;
+            if(title == (searchInput)){
+                parent.style.display = "block";
+            }
+            else{
+                parent.style.display = "none";
+            }
+        });
+    }
+    else
+    {
+        if(searchInput == ""){
+            blocksArray.forEach(element => {
+                parent = GetParent(element, "article__block");
+                parent.style.display = "block";
+            });
+        }    
+    }    
 }

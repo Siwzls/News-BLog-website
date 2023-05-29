@@ -7,7 +7,7 @@
             <label>Password</label>
             <input class="popup__content__input" type="password" name="password" required>
             <input type="hidden" name="isRegistrationRequest" value="false">
-            <input class="popup__content__submit"type="submit" value="Login">
+            <input class="popup__content__submit" type="submit" value="Login">
         </form>
     </div>
 </div>

@@ -1,14 +1,16 @@
 <header>
     <img src="/images/Menu.svg" alt="" class="header__menu">
     <div class="header__logo">
-        <a href="/index.php" class="header__logo__inner">
+        <a href="/" class="header__logo__inner">
             <img src="/images/Logo.svg" alt="">
             <h1 class="header__logo__title">Expo</h1>
         </a>
     </div>
-    <div class="header__search">
-        <input type="search" placeholder="Search">
-    </div>
+    <?php if($_SERVER['REQUEST_URI'] === '/') :?>
+        <div class="header__search">
+            <input id="searchInput" type="search" placeholder="Search" onkeydown="search(event)">
+        </div>
+    <?php endif; ?>
     <div class="header__add">
         <?php if($user->isUserLogined) : ?>
             <button class="header__add__button" id="Add">

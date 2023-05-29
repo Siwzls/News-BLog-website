@@ -35,7 +35,7 @@
                         <a class="article__block" href="views/pages/article.php?id=<?= $article[0] ?>">
                             <div>
                                 <div class="article__block__title">
-                                    <h1>
+                                    <h1 class="article__block__title__inner">
                                         <?= $article[1] ?>
                                     </h1>
                                     <div class="article__block__theme">
